@@ -1,0 +1,108 @@
+create table   CLIENT_MASTER08
+(
+    CLIENTNO Varchar(6) not null, 
+    NAME Varchar(20),
+   ADDRESS1 Varchar(30),
+  ADDRESS2 Varchar(30),
+  CITY Varchar(15), 
+   PINCODE Integer,    
+  STATE Varchar(15),
+  BALDUE Decimal 
+); 
+
+create table    PRODUCT_MASTER08
+(
+   PRODUCTNO Varchar(6),
+   DESCRIPTION Varchar(15), 
+  PROFITPERCENT Decimal(4.2),
+   UNITMEASURE Varchar(10),
+   QTYONHAND Integer,  
+   REORDERLVL Integer,   
+   SELLPRICE Decimal,
+    COSTPRICE Decimal 
+);            
+
+
+ create table  SALESMAN_MASTER08
+(
+ SALESMANNO Varchar(6),
+SALESMANNAME Varchar(20),
+ADDRESS1 Varchar(30),
+ADDRESS2 Varchar(30),
+CITY Varchar(20), 
+PINCODE Integer,   
+STATE Varchar(20),
+SALAMT Real,   
+TGTTOGET Decimal,   
+YTDSALES float,
+SALARY INT(43),
+REMARKS Varchar(60)
+);
+
+
+ INSERT INTO  CLIENT_MASTER08
+(CLIENTNO, NAME,ADDRESS1, ADDRESS2,CITY,PINCODE, STATE,BALDUE) VALUES ('C00001', 'Ivan bayross','pune','punjab', 'Mumbai', 400054, 'Maharashtra', 15000), 
+('C00002', 'Mamta muzumdar','pune','punjab', 'Madras', 780001, 'Tamil nadu', 0 ),
+('C00003', 'Chhaya bankar','pune','punjab', 'Mumbai', 400057, 'Maharashtra', 5000), 
+('C00004', 'Ashwini  joshi','pune','punjab', 'Bangalore', 560001, 'Karnataka', 0),
+('C00005', 'Hansel colaco','pune','punjab', 'Mumbai', 400060, 'Maharashtra', 2000),
+('C00006', 'Deepak sharma','pune','punjab', 'Mangalore', 560050, 'Karnataka', 0);
+
+
+insert into   PRODUCT_MASTER08
+( PRODUCTNO,DESCRIPTION,PROFITPERCENT, UNITMEASURE,  QTYONHAND,     REORDERLVL,  SELLPRICE,COSTPRICE) values('P00001', 'T-Shirt', 5, 'Piece', 200, 50, 350, 250), 
+('P0345', 'Shirts', 6, 'Piece', 150, 50 ,500 ,350 ),
+('P06734', 'Cottonjeans', 5 ,'Piece', 100, 20 ,600, 450), 
+('P07865', 'Jeans', 5, 'Piece', 100, 20, 750, 500), 
+('P07868', 'Trousers', 2, 'Piece', 150, 50 ,850 ,550), 
+('P07885', 'PullOvers', 2.5, 'Piece', 80, 30, 700 ,450 ),
+('P07965', 'Denimjeans', 4, 'Piece', 100, 40 ,350, 250), 
+('P07975', 'Lycratops', 5, 'Piece', 70, 30, 300, 175 ), 
+('P08865', 'Skirts', 5, 'Piece', 75, 30, 450, 300); 
+ 
+
+
+ insert into  SALESMAN_MASTER08
+( SALESMANNO,SALESMANNAME,ADDRESS1,CITY, PINCODE,   STATE,SALARY ) values ('S00001', 'Aman', 'A/14 Worli', 'Mumbai', 400002, 'Maharashtra',3000), 
+('S00002', 'Omkar', '65 Nariman', 'Mumbai', 400001, 'Maharashtra',5000),
+('S00003', 'Raj', 'P-7 Bandra', 'Mumbai', 400032, 'Maharashtra',3500), 
+('S00004', 'Ashish', 'A/5 Juhu', 'Mumbai', 400044, 'Maharashtra',3000); 
+
+3>a.SELECT DISTINCT (NAME) FROM CLIENT_MASTER08;
+3>b.select * from CLIENT_MASTER08;
+3>C.SELECT (NAME),(CITY),(STATE) FROM CLIENT_MASTER08 ORDER BY (NAME) ASC;
+SELECT [col1],[col2] FROM [table name] ORDER BY [col2] DESC;
+3>D.SELECT  (DESCRIPTION)(UNITMEASURE) FROM PRODUCT_MASTER08 ;
+SELECT * FROM [table name] WHERE [field name] = "whatever";
+3>e.SELECT * FROM CLIENT_MASTER08 WHERE (CITY) = "MUMBAI";
+3>F.SELECT *FROM SALESMAN_MASTER08 WHERE(SALARY) = 1000;
+
+4>a.UPDATE CLIENT_MASTER08  SET CITY='Bangalore'
+WHERE CLIENTNO='C00005';
+4>b.UPDATE CLIENT_MASTER08  SET BALDUE=1000
+WHERE CLIENTNO='C00001';
+4>c.UPDATE PRODUCT_MASTER08   SET COSTPRICE=950.0
+WHERE DESCRIPTION= 'Trousers';
+4>d.UPDATE SALESMAN_MASTER08  SET CITY='PUNE';
+5>A.delete from SALESMAN_MASTER08 WHERE(SALARY)=3500;
+5>b.delete from PRODUCT_MASTER08 where( QTYONHAND)=100;
+5>c.delete from  CLIENT_MASTER08 where( STATE)='Tamil nadu';
+ALTER TABLE table_name CHANGE old_col new_col data_type:
+
+This query is run to change the specific column name:-
+alter table changetablename change old_name name varchar (10) ;
+alter table changetablename change new_Name address varchar (10) ;
+mysql> ALTER TABLE table_name ADD [COLUMN] new_column_name column_definition [FIRST|AFTER existing_column];
+6>a. alter table CLIENT_MASTER08 ADD (telephone int(50));
+6>b.alter TABLE PRODUCT_MASTER08 CHANGE SELLPRICE SELLPRICE DECIMAL(10.2);
+7>DROP TABLE CLIENT_MASTER08;
+8>RENAME TABLE SALESMAN_MASTER08 TO sman_mast;
+RENAME TABLE old_table TO new_table;
+ALTER TABLE tablename MODIFY columnname VARCHAR(20) ;
+
+
+
+
+
+
+
